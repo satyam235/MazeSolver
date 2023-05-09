@@ -69,7 +69,7 @@ if __name__=='__main__':
     textLabel(myMaze,'Total Cost',c)
 
     # a=agent(myMaze,color=COLOR.cyan,filled=True,footprints=True)
-    a=agent(myMaze,6,1,color=COLOR.cyan,filled=True,footprints=True)
+    a=agent(myMaze,6,1,color=COLOR.cyan,footprints=True)
     myMaze.tracePath({a:path})
 
 

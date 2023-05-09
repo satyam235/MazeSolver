@@ -54,8 +54,8 @@ if __name__=='__main__':
     m.CreateMaze(loadMaze='aStardemo.csv')
 
     searchPath,aPath,fwdPath=aStar(m)
-    a=agent(m,footprints=True,color=COLOR.blue,filled=True)
-    b=agent(m,1,1,footprints=True,color=COLOR.yellow,filled=True,goal=(m.rows,m.cols))
+    a=agent(m,footprints=True,color=COLOR.blue)
+    b=agent(m,1,1,footprints=True,color=COLOR.yellow,goal=(m.rows,m.cols))
     c=agent(m,footprints=True,color=COLOR.red)
 
     m.tracePath({a:searchPath},delay=300)

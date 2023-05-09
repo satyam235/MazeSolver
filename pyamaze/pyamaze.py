@@ -358,6 +358,7 @@ class maze:
         _closed=[]
         self.theme=theme
         self._goal=(x,y)
+        self._win.title('Graph Theory Capstone Project - Maze Solver')
         if(isinstance(theme,str)):
             if(theme in COLOR.__members__):
                 self.theme=COLOR[theme]
@@ -888,4 +889,6 @@ class maze:
         '''
         Finally to run the Tkinter Main Loop
         '''
+        #set the title of the window
+        self._win.title("Maze")
         self._win.mainloop()

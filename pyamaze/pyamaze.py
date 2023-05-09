@@ -1,8 +1,5 @@
 """
 License
-https://www.youtube.com/c/LearningOrbis
-Copyright (c) 2021 Muhammad Ahsan Naeem
-mahsan.naeem@gmail.com
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -620,7 +617,7 @@ class maze:
         self._LabWidth=26 # Space from the top for Labels
         self._win=Tk()
         self._win.state('zoomed')
-        self._win.title('PYTHON MAZE WORLD by Learning Orbis')
+        self._win.title('Graph Theory Capstone Project - Maze Solver')
         
         scr_width=self._win.winfo_screenwidth()
         scr_height=self._win.winfo_screenheight()

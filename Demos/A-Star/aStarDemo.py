@@ -50,16 +50,16 @@ def aStar(m,start=None):
     return searchPath,aPath,fwdPath
 
 if __name__=='__main__':
-    m=maze(4,4)
-    m.CreateMaze(loadMaze='Demos/A-Star/astardemo.csv')
+    m=maze(5,5)
+    m.CreateMaze(loopPercent=100)
 
     searchPath,aPath,fwdPath=aStar(m)
-    a=agent(m,footprints=True,color=COLOR.blue)
+    a=agent(m,footprints=True,color=COLOR.green)
     b=agent(m,1,1,footprints=True,color=COLOR.yellow,goal=(m.rows,m.cols))
-    c=agent(m,footprints=True,color=COLOR.red)
+    c=agent(m,footprints=True,color=COLOR.blue)
 
     m.tracePath({a:searchPath},delay=300)
-    m.tracePath({b:aPath},delay=300)
+    # m.tracePath({b:aPath},delay=300)
     m.tracePath({c:fwdPath},delay=300)
 
     l=textLabel(m,'A Star Path Length',len(fwdPath)+1)

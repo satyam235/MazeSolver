@@ -8,8 +8,7 @@ if __name__ == '__main__':
         print('1. A*')
         print('2. BFS')
         print('3. DFS')
-        print('4. Dijkstra')
-        print('5. Quit')
+        print('4. Quit')
         print('Enter a number: ')
 
         choice = input()
@@ -21,7 +20,7 @@ if __name__ == '__main__':
             # If CTRL-C is pressed, terminate the subprocess
                 a_star.terminate()
         if choice == '2':
-            bfs = subprocess.Popen(['python', 'Demos/BFS/bfsDemo.py'])
+            bfs = subprocess.Popen(['python', 'Demos/BFS/BFSDemo.py'])
             try:
                 bfs.wait()
             except KeyboardInterrupt:
@@ -29,19 +28,12 @@ if __name__ == '__main__':
             # If CTRL-C is pressed, terminate the subprocess
                 bfs.terminate()
         if choice == '3':
-            dfs = subprocess.Popen(['python', 'Demos/DFS/dfsDemo.py'])
+            dfs = subprocess.Popen(['python', 'Demos/DFS/DFSDemo.py'])
             try:
                 dfs.wait()
             except KeyboardInterrupt:
             # If CTRL-C is pressed, terminate the subprocess
                 dfs.terminate()
-        if choice == '4':
-            dijkstra = subprocess.Popen(['python', "Demos/Dijkstra's Algorithm/dijkstraMaze.py"])
-            try:
-                dijkstra.wait()
-            except KeyboardInterrupt:
-            # If CTRL-C is pressed, terminate the subprocess
-                dijkstra.terminate()
     
-        if choice == '5':
+        if choice == '4':
             break

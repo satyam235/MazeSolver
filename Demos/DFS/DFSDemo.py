@@ -47,9 +47,9 @@ if __name__=='__main__':
 
     a=agent(m,5,1,goal=(2,4),footprints=True,shape='square',color=COLOR.green)
     b=agent(m,2,4,goal=(5,1),footprints=True)
-    c=agent(m,5,1,footprints=True,color=COLOR.yellow)
+    c=agent(m,5,1,footprints=True,color=COLOR.blue)
     m.tracePath({a:dSeacrh})
-    m.tracePath({b:dfsPath})
+    # m.tracePath({b:dfsPath}) // backtracking path
     m.tracePath({c:fwdPath})
     m.run()
 

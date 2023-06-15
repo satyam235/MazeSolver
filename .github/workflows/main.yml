@@ -1,33 +1,45 @@
 name: Ubuntu Build
 
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+env:
+  BUILD_REQUIRED: True
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This job will build the project
   build:
+    # The type of runner that the job will run on
+    strategy:
+        matrix:
+            os: [ubuntu-18.04, ubuntu-20.04,ubuntu-22.04]
     runs-on: ${{ matrix.os }}
 
-    strategy:
-      matrix:
-        os:
-          - ubuntu-18.04
-          - ubuntu-20.04
-    
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: Set up Python ${{ matrix.python-version }} on ${{ matrix.os }}
-        if: matrix.os == 'ubuntu-18.04'
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - if: matrix.os == 'ubuntu-18.04'
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
-
-      - name: Set up Python ${{ matrix.python-version }} on ${{ matrix.os }}
-        if: matrix.os == 'ubuntu-20.04'
+          python-version: '3.6'
+          architecture: 'x64'
+      - if: matrix.os == 'ubuntu-20.04'
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: '3.8'
+          architecture: 'x64'
+      - if: matrix.os == 'ubuntu-22.04'
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+          architecture: 'x64'
+      - name: Display Python version
+        run: python --version
       
-      # Rest of the steps...
+      

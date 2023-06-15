@@ -13,22 +13,19 @@ jobs:
         os:
           - ubuntu-18.04
           - ubuntu-20.04
-        python-version:
-          - 3.6
-          - 3.8
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       
       - name: Set up Python ${{ matrix.python-version }} on ${{ matrix.os }}
-        if: matrix.os == 'ubuntu-18.04' && matrix.python-version == '3.6'
+        if: matrix.os == 'ubuntu-18.04'
         uses: actions/setup-python@v2
         with:
           python-version: 3.6
 
       - name: Set up Python ${{ matrix.python-version }} on ${{ matrix.os }}
-        if: matrix.os == 'ubuntu-20.04' && matrix.python-version == '3.8'
+        if: matrix.os == 'ubuntu-20.04'
         uses: actions/setup-python@v2
         with:
           python-version: 3.8

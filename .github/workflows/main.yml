@@ -18,17 +18,9 @@ jobs:
     env:
       BUILD_REQUIRED: True
     # The type of runner that the job will run on
-    strategy:
-        matrix:
-            os: [ubuntu-18.04]
-            python-version: ['3.6','3.8','3.10']
-            exclude:
-              - os: ubuntu-18.04
-                python-version: 
-                  -'3.8'
-                  -'3.10'
+
               
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-18.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -36,7 +28,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: '3.6'
           architecture: 'x64'
       - name: Display Python version
         run: python --version
